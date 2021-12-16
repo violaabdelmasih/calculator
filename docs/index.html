@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Fx Calculator Demo PWA">
+    <meta name="theme-color" content="#ccffcc">
+
+    <title>Fx Calculator PWA</title>    
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="icons/icon192.png">
+    <link rel="shortcut icon" type="image/png" href="icons/icon16.png"/>
+    <script async src="app.js"></script>
+    
+</head>
+<body>
+    <main>
+        <h1>Fx Calculator</h1>
+        <section>
+            <label for="input-value">Input</label>
+            <input id="input-value" type="number" name="input-value">
+            <select title="Input Currency" name="input-currency"></select>
+        </section>
+        <section>
+            <label for="output-value">Output</label>
+            <input id="output-value" name="output-value" readonly>
+            <select title="Output Currency" id="output-currency" name="output-currency"></select>
+        </section>
+        <button>Calculate</button>
+    </main>
+
+    <article>
+        <h2>Install App</h2>
+        <p>Do you want to install the App locally and for offline use?</p>
+        <button data-id="install-yes">Yes</button>
+        <button data-id="install-no">No</button>
+    </article>
+
+
+
+    <script>        
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .catch(console.error);
+        }
+    </script>
+</body>
+</html>
